@@ -1,5 +1,5 @@
 :root{
-    --Azul: #000000e7;
+    --Negro-primario: #000000e7;
     --Negro: #000;
     --Neutro: #EEE;
     --Blanco: #FFF;
@@ -15,13 +15,13 @@ html{
     box-sizing: inherit;
 }
 
-body{
+body{   
     margin: 0;
     font-family: 'Montserrat', sans-serif;
 }
 
 header{
-    background-color: var(--Azul);
+    background-color: var(--Negro-primario);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -70,7 +70,7 @@ header ol li a{
 
 .card-dashboard{
     background: var(--Blanco);
-    border: 2px solid var(--Azul);
+    border: 2px solid var(--Negro-primario);
     border-radius: 20px;
     padding: 20px;
     text-align: center;
@@ -92,7 +92,7 @@ header ol li a{
     grid-template-rows: 2fr 1fr;
     padding: 20px;
     margin: 20px;
-    border: 2px solid var(--Azul);  
+    border: 2px solid var(--Negro-primario);  
     border-radius: 20px;
 }
 
@@ -103,7 +103,7 @@ header ol li a{
 .card-tipo{
     background: var(--Fondo);
     align-items: center;
-    border: 2px solid var(--Azul);
+    border: 2px solid var(--Negro-primario);
     padding: 20px;
     margin: 20px;
     border-radius: 20px;
@@ -116,7 +116,7 @@ header ol li a{
     text-decoration: none;
     padding: 15px;
     margin: 10px;
-    background-color: var(--Azul);
+    background-color: var(--Negro-primario);
     border-radius: 15px;
     color: var(--Blanco);
 }
@@ -130,7 +130,7 @@ header ol li a{
 .titulo-gestion{
     font-size: 24px;
     font-weight: bold;
-    color: var(--Azul);
+    color: var(--Negro-primario);
 }
 
 .btn-cs{
@@ -195,7 +195,7 @@ header ol li a{
 
 
 .footer{
-    background: var(--Azul);
+    background: var(--Negro-primario);
     color: var(--Blanco);
     text-align: center;
     padding: 15px;
@@ -215,9 +215,9 @@ header ol li a{
 .subtitulo-gestion{
     font-size: 20px;
     font-weight: bold;
-    color: var(--Azul);
+    color: var(--Negro-primario);
     margin-bottom: 20px;
-    border-bottom: 2px solid var(--Azul);
+    border-bottom: 2px solid var(--Negro-primario);
     padding-bottom: 10px;
 }
 
@@ -227,7 +227,7 @@ header ol li a{
     padding: 25px;
     border-radius: 15px;
     margin-bottom: 30px;
-    border: 2px solid var(--Azul);
+    border: 2px solid var(--Negro-primario);
 }
 
 .form-crud{
@@ -250,7 +250,7 @@ header ol li a{
 .form-group input,
 .form-group select{
     padding: 10px;
-    border: 2px solid var(--Azul);
+    border: 2px solid var(--Negro-primario);
     border-radius: 8px;
     font-size: 14px;
     transition: border-color 0.3s;
@@ -279,7 +279,7 @@ header ol li a{
 .preview-imagen{
     max-width: 200px;
     max-height: 250px;
-    border: 2px solid var(--Azul);
+    border: 2px solid var(--Negro-primario);
     border-radius: 10px;
     object-fit: contain;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
@@ -331,7 +331,7 @@ header ol li a{
     width: 100%;
     max-width: 400px;
     padding: 10px 15px;
-    border: 2px solid var(--Azul);
+    border: 2px solid var(--Negro-primario);
     border-radius: 20px;
     font-size: 14px;
 }
@@ -344,7 +344,7 @@ header ol li a{
 .select-filtro{
     width: 100%;
     padding: 10px 15px;
-    border: 2px solid var(--Azul);
+    border: 2px solid var(--Negro-primario);
     border-radius: 20px;
     font-size: 14px;
     background-color: var(--Blanco);
@@ -370,7 +370,7 @@ header ol li a{
 }
 
 .tabla-crud thead{
-    background-color: var(--Azul);
+    background-color: var(--Negro-primario);
     color: var(--Blanco);
 }
 
@@ -400,7 +400,7 @@ header ol li a{
     height: 60px;
     object-fit: cover;
     border-radius: 5px;
-    border: 1px solid var(--Azul);
+    border: 1px solid var(--Negro-primario);
 }
 
 .acciones-td{
