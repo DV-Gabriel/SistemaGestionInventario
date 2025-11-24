@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="styles2.css">
+    <title>Gestión de Proveedores</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="img/LogoMP.png" alt="logoEmpresa" width="100" height="100">
+            <h1>Gestión de Proveedores</h1>
+        </div>
+        <ol>
+            <li><a class="btn-db" href="dashboard.html" title="Ir al dashboard" aria-label="Ir al dashboard"><img src="img/dashboard.png" alt="Dashboard" width="24" height="24"></a></li>
+            <li><a class="btn-cs" href="login.html" id="logoutBtn" title="Cerrar sesión" aria-label="Cerrar sesión"><img src="img/salida.png" alt="Salir" width="24" height="24"></a></li>
+        </ol>
+    </header>
+
+    <div class="dashboard-content">
+        <div class="contenedor-crud">
+            <h2 class="titulo-gestion">Gestión de Proveedores</h2>
+
+            <!-- Formulario agregar proveedoress -->
+            <div class="form-container">
+                <h3 class="subtitulo-gestion">Agregar Proveedor</h3>
+                <form id="formProveedor" class="form-crud">
+                    <input type="hidden" id="proveedorId" value="">
+                    
+                    <div class="form-group">
+                        <label for="nombre">Nombre del Proveedor:</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej: Textil Global S.A." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Ej: +56 9 1234 5678" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Ej: contacto@textilglobal.com" required>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="submit" class="btn-gestion btn-guardar">Guardar Proveedor</button>
+                        <button type="reset" class="btn-gestion btn-limpiar">Limpiar Formulario</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="tabla-container">
+                <h3 class="subtitulo-gestion">Lista de Proveedores</h3>
+                <div class="filtros-container">
+                <div class="buscador-container">
+                    <input type="text" id="buscador" class="input-buscar" placeholder="Buscar por nombre...">
+                </div>
+            </div>
+                <table class="tabla-crud">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Teléfono</th>
+                            <th>Email</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaProveedores">
+                        <!-- Proveedores de ejemplo -->
+                        <tr>
+                            <td>P01</td>
+                            <td>Daya S.A.</td>
+                            <td>0992333333</td>
+                            <td>daya@gmail.com</td>
+                            <td class="acciones-td">
+                                <button class="btn-accion btn-editar" >✏️</button>
+                                <button class="btn-accion btn-eliminar">🗑️</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>P01</td>
+                            <td>Daya S.A.</td>
+                            <td>0992333333</td>
+                            <td>daya@gmail.com</td>
+                            <td class="acciones-td">
+                                <button class="btn-accion btn-editar" >✏️</button>
+                                <button class="btn-accion btn-eliminar">🗑️</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; Todos los derechos reservados 2025</p>
+    </footer>
+
+</body>
+</html>

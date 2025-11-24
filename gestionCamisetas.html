@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles2.css">
+    <title>Gestión camisetas</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="img/LogoMP.png" alt="logoEmpresa" width="100" height="100">
+            <h1> Gestión de Camisetas</h1>
+        </div>
+        <ol>
+            <li><a class="btn-db" href="dashboard.html" title="Ir al dashboard" aria-label="Ir al dashboard"><img src="img/dashboard.png" alt="Dashboard" width="24" height="24"></a></li>
+            <li><a class="btn-cs" href="login.html" id="logoutBtn" title="Cerrar sesión" aria-label="Cerrar sesión"><img src="img/salida.png" alt="Salir" width="24" height="24"></a></li>
+        </ol>
+    </header>
+
+    <div class="dashboard-content">
+        <div class="contenedor-crud">
+            <h2 class="titulo-gestion">Administración de Camisetas</h2>
+            
+            <!-- Formulario para agregar/editar camisetas -->
+            <div class="form-container">
+                <h3 class="subtitulo-gestion">Agregar/Editar Camiseta</h3>
+                <form id="formCamiseta" class="form-crud">
+                    <input type="hidden" id="camisetaId" value="">
+                    
+                    <div class="form-group">
+                        <label for="nombre">Nombre de la Camiseta:</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej: Camiseta Local 2024" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="equipo">Equipo:</label>
+                        <input type="text" id="equipo" name="equipo" placeholder="Ej: Real Madrid" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="talla">Talla:</label>
+                        <select id="talla" name="talla" required>
+                            <option value="">Seleccione una talla</option>
+                            <option value="XS">XS</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                            <option value="XXL">XXL</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="precio">Precio (USD):</label>
+                        <input type="number" id="precio" name="precio" placeholder="0.00" step="0.01" min="0" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="stock">Stock:</label>
+                        <input type="number" id="stock" name="stock" placeholder="0" min="0" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tipo">Tipo:</label>
+                        <select id="tipo" name="tipo" required>
+                            <option value="">Seleccione un tipo</option>
+                            <option value="Local">Local</option>
+                            <option value="Visitante">Visitante</option>
+                            <option value="Alternativa">Alternativa</option>
+                            <option value="Entrenamiento">Entrenamiento</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group form-group-imagen">
+                        <label for="imagen">Imagen de la Camiseta:</label>
+                        <input type="file" id="imagen" name="imagen" accept="image/*" onchange="previsualizarImagen(event)">
+                        <div id="preview-container" class="preview-container">
+                            <img id="preview-imagen" class="preview-imagen" src="" alt="Vista previa" style="display: none;">
+                        </div>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="submit" class="btn-gestion btn-guardar">Guardar</button>
+                        <button type="button" class="btn-gestion btn-cancelar" onclick="limpiarFormulario()">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Tabla de camisetas -->
+            <div class="tabla-container">
+                <h3 class="subtitulo-gestion">Lista de Camisetas</h3>
+                <div class="filtros-container">
+                    <div class="buscador-container">
+                        <input type="text" id="buscador" class="input-buscar" placeholder="Buscar por nombre...">
+                    </div>
+                    <div class="filtro-talla-container">
+                        <select id="filtroTalla" class="select-filtro">
+                            <option value="">Todas las tallas</option>
+                            <option value="XS">XS</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                            <option value="XXL">XXL</option>
+                        </select>
+                    </div>
+                </div>
+                <table class="tabla-crud">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Imagen</th>
+                            <th>Nombre</th>
+                            <th>Equipo</th>
+                            <th>Talla</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                            <th>Tipo</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaCamisetas">
+                        <!-- Datos de ejemplo -->
+                        <tr>
+                            <td>1</td>
+                            <td><img src="img/camiseta1.jpg" alt="Camiseta" class="img-tabla"></td>
+                            <td>Camiseta Local 2024</td>
+                            <td>Real Madrid</td>
+                            <td>M</td>
+                            <td>$89.99</td>
+                            <td>25</td>
+                            <td>Local</td>
+                            <td class="acciones-td">
+                                <button class="btn-accion btn-editar" >✏️</button>
+                                <button class="btn-accion btn-eliminar" >🗑️</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><img src="img/camiseta2.jpg" alt="Camiseta" class="img-tabla"></td>
+                            <td>Camiseta Visitante 2024</td>
+                            <td>Barcelona</td>
+                            <td>L</td>
+                            <td>$85.99</td>
+                            <td>30</td>
+                            <td>Visitante</td>
+                            <td class="acciones-td">
+                                <button class="btn-accion btn-editar" >✏️</button>
+                                <button class="btn-accion btn-eliminar" >🗑️</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td><img src="img/camiseta3.jpg" alt="Camiseta" class="img-tabla"></td>
+                            <td>Camiseta Alternativa 2024</td>
+                            <td>Manchester United</td>
+                            <td>XL</td>
+                            <td>$79.99</td>
+                            <td>15</td>
+                            <td>Alternativa</td>
+                            <td class="acciones-td">
+                                <button class="btn-accion btn-editar" >✏️</button>
+                                <button class="btn-accion btn-eliminar" >🗑️</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; Todos los derechos reservados 2025</p>
+    </footer>
+
+</body>
+</html>
